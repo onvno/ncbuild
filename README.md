@@ -37,7 +37,16 @@ $ ncbuild --project=JC --menu=lsqkmgr --out=lsqkreport --type=JC31 --node=JCH003
 
 #### 备注
 
-* 使用了jc下的lsqkreport模板
+* 使用了`jc/lsqkmgr`下的`lsqkreport`模板:
+
   * 修正`fullclassname`统一为此类写法`nc.vo.jc.lsqk.AggLsqk`
+
+  * 去除了私有方法
+
+  * 模板包含子表，创建生成后，需要根据实际情况自行注释
+
   * 所有参数均按照变量替换
+
   * html中的`jcform`类名保留不做批量更改
+
+    ​
