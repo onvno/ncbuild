@@ -21,12 +21,27 @@ $ cd project
 
 # 项目目录创建模板
 $ ncbuild --project=ProjectName --menu=MenuName --out Name --type TypeName --node NodeName
-或
-$ ncbuild -P ProjectName -M MenuName -O Name -T TypeName -N NodeName
 
 # 以training节点为例，单据类型PT32,菜单编码PTH10302
 $ ncbuild --project=JC --menu=lsqkmgr --out=lsqkreport --type=JC31 --node=JCH00301 --data=lsqk
 
+
+
+```
+
+为简化创建模板，也可使用传入配置文件(路径可以为相对或者绝对)
+```
+ $ ncbuild --file ./config.json
+ 
+ # 配置文件内容：
+ {
+  "name": "pmreport",
+  "data": "pmreport",
+  "module": "party",
+  "comp": "dwmgr",
+  "type": "PT42",
+  "node": "PTH10402"
+}
 ```
 
 支持参数为小写，如`PT32`,输入为`pt32`
