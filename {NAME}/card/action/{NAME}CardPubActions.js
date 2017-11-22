@@ -4,9 +4,6 @@
 define(
         [
                 'actionType',
-                ctx + 'modules/webpub/pub/resource/action/card/commitAction.js',
-                ctx
-                        + 'modules/webpub/pub/resource/action/card/unCommitAction.js',
                 ctx + 'modules/webpub/pub/resource/action/card/editAction.js',
                 ctx + 'modules/webpub/pub/resource/action/card/deleteAction.js',
                 ctx + 'modules/webpub/pub/resource/action/card/saveAction.js'],
@@ -26,10 +23,6 @@ define(
                         }
                         return !isEditable && pkflag;
                     };
-
-                    var _commitAction = new commitAction({});
-
-                    var _unCommitAction = new unCommitAction({});
 
                     var _editAction = new editAction({});
 
@@ -54,8 +47,8 @@ define(
                                 funName : "isVisible",
                                 implFun : billrefresh_isVisible
                             } ]
-                        }, _deleteAction, _unCommitAction ]
-                    }, _commitAction, _editAction, {
+                        }, _deleteAction]
+                    }, _editAction, {
                         // 新增
                         code : actionType.ADD.CODE
                     }, {
