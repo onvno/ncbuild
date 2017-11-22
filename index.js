@@ -124,7 +124,11 @@ const pattern = path.join(baseDir, '**/*');
 const enters = glob.sync(pattern);
 
 enters.forEach(function(item, index){
-  const dest = item.replace(REPLACE.name, OUT.name).replace(__dirname, process.cwd());
+  const DIR = __dirname.replace(/\\/g,'/');
+  const PRO = process.cwd().replace(/\\/g,'/');
+  console.log("DIR:",DIR);
+  console.log("PRO:",PRO);
+  const dest = item.replace(REPLACE.name, OUT.name).replace(DIR, PRO);
   const isDir = fs.statSync(item).isDirectory();
 
   if(isDir) {
