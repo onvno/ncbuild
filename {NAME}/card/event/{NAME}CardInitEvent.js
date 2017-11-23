@@ -57,6 +57,7 @@ define(
                             },
                             list : {
                                 arr_{DATA}_b : {
+                                    tabName : "{TABNAME}",// 页签名称
                                     multiSelect : true
                                 }
                             },
@@ -75,12 +76,12 @@ define(
                     } else if (typeof param === "object") {
                         toCardParams = param;
                     }
-                    // 新增默认值事件，必须注册在initUI之前
                     
-                      var _cardDefaultValueListener = new
-                      cardDefaultValueListener( _cardUtils, toCardParams);
-                      _pubCardPage.onSetDefaultValueWhenAdd(function() {
-                      _cardDefaultValueListener.doListener(); });
+                    // 新增默认值事件，必须注册在initUI之前,需要新增默认值的放开注释
+                     // var _cardDefaultValueListener = new
+                      //cardDefaultValueListener( _cardUtils, toCardParams);
+                     // _pubCardPage.onSetDefaultValueWhenAdd(function() {
+                     // _cardDefaultValueListener.doListener(); });
                      
 
                     // // 表头编辑后事件

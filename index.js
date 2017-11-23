@@ -19,7 +19,7 @@ const os = require('os');
 
 
 const argv = require('yargs')
-// .demand(['out','type','node','module','comp', 'data'])
+// .demand(['out','type','node','module','comp', 'data',"tabName"])
 .option('out', {
   alias: 'O',
   describe: '当前目录输出模板名称:lsqkreport',
@@ -44,6 +44,10 @@ const argv = require('yargs')
   alias: 'D',
   describe: '元数据:lsqk',
 })
+.option('tabName', {
+  alias: 'T',
+  describe: '子表tabname',
+})
 .option('file', {
   alias: 'F',
   describe: '配置文件',
@@ -61,6 +65,7 @@ const REPLACE = {
   module:/{PROJECT}/g,
   comp:/{MENU}/g,
   data:/{DATA}/g,
+  tabName:/{TABNAME}/g,
   upperData:/{UPPERDATA}/g,
 }
 
@@ -70,6 +75,7 @@ var lowerOutName,
     lowerOutModule,
     lowerOutComp,
     lowerOutData,
+    lowerOutTabName,
     upperOutData;
 
 if(argv.file){
@@ -82,9 +88,10 @@ if(argv.file){
   lowerOutModule = resultJSON.module;
   lowerOutComp = resultJSON.comp;
   lowerOutData = resultJSON.data;
+  lowerOutTabName = resultJSON.tabName;
 
 } else {
-  const commandAry = ["out","type","node","module","data","comp"];
+  const commandAry = ["out","type","node","module","data","comp","tabName"];
   commandAry.map(function(item){
     if(!argv[item]) throw item + '参数没有输入'; 
   })
@@ -94,6 +101,7 @@ if(argv.file){
   lowerOutModule = argv.module.toLowerCase();
   lowerOutComp = argv.comp.toLowerCase();
   lowerOutData = argv.data.toLowerCase();
+  lowerOutTabName = argv.TabName;
 }
 
 upperOutData = UpperFirstLetter(lowerOutData);
@@ -111,6 +119,7 @@ const OUT = {
   module: lowerOutModule,
   comp: lowerOutComp,
   data: lowerOutData,
+  tabName:lowerOutTabName,
   upperData: upperOutData
 }
 
@@ -150,6 +159,7 @@ enters.forEach(function(item, index){
         .replace(REPLACE.module, OUT.module)
         .replace(REPLACE.comp, OUT.comp)
         .replace(REPLACE.data, OUT.data)
+        .replace(REPLACE.tabName, OUT.tabName)
         .replace(REPLACE.upperData, OUT.upperData)
         + os.EOL;
       fWrite.write(newLine);

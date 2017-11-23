@@ -44,7 +44,7 @@ define(
                                 tabs : {// 页签编码
                                     arr_{DATA}_b : {
                                         selected : true,// 默认选中页签，有且只能有一个
-                                        tabName : "落实情况子表",// 页签名称
+                                        tabName : "{TABNAME}",// 页签名称
                                         showCount : false,// 是否显示数量
                                         domid : "#listbody0",// 页签显示位置domid
                                         editColWidth : "0",// 操作列宽度
