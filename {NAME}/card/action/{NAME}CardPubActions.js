@@ -7,7 +7,7 @@ define(
                 ctx + 'modules/webpub/pub/resource/action/card/editAction.js',
                 ctx + 'modules/webpub/pub/resource/action/card/deleteAction.js',
                 ctx + 'modules/webpub/pub/resource/action/card/saveAction.js'],
-        function(actionType, commitAction, unCommitAction, editAction,
+        function(actionType, editAction,
                 deleteAction, saveAction) {
             return {
 
@@ -31,8 +31,7 @@ define(
                     var _saveAction = new saveAction({
                         mustBodys : true,
                         hasUploader : true,
-                        hid : "pk_{DATA}",
-                        oId:"arr_{DATA}_b"
+                        hid : "pk_{DATA}"
                     });
                     var headAction = [ {
                         // 返回
@@ -60,11 +59,7 @@ define(
                     return headAction;
                 },
                 bodyActions : function() {
-                    var bodyAction = [ {
-                        code : actionType.DELLINE.CODE
-                    }, {
-                        code : actionType.ADDLINE.CODE
-                    }];
+                    var bodyAction = [ ];
                     return bodyAction;
                 },
                 innerActions : function() {

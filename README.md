@@ -20,10 +20,10 @@ $ npm install -g ncbuild
 $ cd project
 
 # 项目目录创建模板
-$ ncbuild --project=ProjectName --menu=MenuName --out Name --type TypeName --node NodeName
+$ ncbuild --project=ProjectName --menu=MenuName --out Name --type TypeName --node NodeName --tabName tabName
 
 # 以training节点为例，单据类型PT32,菜单编码PTH10302
-$ ncbuild --project=JC --menu=lsqkmgr --out=lsqkreport --type=JC31 --node=JCH00301 --data=lsqk
+$ ncbuild --project=JC --menu=lsqkmgr --out=lsqkreport --type=JC31 --node=JCH00301 --data=lsqk --tabName=“落实情况子表详情”
 
 
 
@@ -40,7 +40,8 @@ $ ncbuild --project=JC --menu=lsqkmgr --out=lsqkreport --type=JC31 --node=JCH003
   "module": "party",
   "comp": "dwmgr",
   "type": "PT42",
-  "node": "PTH10402"
+  "node": "PTH10402",
+  "tabName":"落实情况子表详情"
 }
 ```
 
