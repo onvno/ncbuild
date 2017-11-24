@@ -118,12 +118,14 @@ module.exports = function(argv){
       });
 
       rl.on('close', () => {
-        console.log(path.basename(dest),'替换&拷贝完毕');
+        // console.log(path.basename(dest),'模板文件已经创建到:',dest);
       })
     }
   })
 
-
+  setTimeout(function(){
+    console.log(OUT.name,'模板文件已经创建到', destDir);
+  })
 
 }
 
