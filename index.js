@@ -42,7 +42,7 @@ const argv = require('yargs')
             alias: 'D',
             describe: '元数据:lsqk',
           })
-          .option('tabName', {
+          .option('tab', {
             alias: 'T',
             describe: '子表tabname',
           })

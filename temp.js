@@ -42,16 +42,16 @@ module.exports = function(argv){
     var mergePath = path.isAbsolute(argv.file) ? argv.file : path.join(process.cwd(), argv.file);
     var configStr = fs.readFileSync(mergePath);
     var resultJSON = JSON.parse(configStr);
-    lowerOutName = resultJSON.name;
-    upperOutType = resultJSON.type;
-    upperOutNode = resultJSON.node;
-    lowerOutModule = resultJSON.module;
-    lowerOutComp = resultJSON.comp;
-    lowerOutData = resultJSON.data;
-    lowerOutTabName = resultJSON.tabName;
+    lowerOutName = resultJSON.name.toLowerCase();
+    upperOutType = resultJSON.type.toUpperCase();
+    upperOutNode = resultJSON.node.toUpperCase();
+    lowerOutModule = resultJSON.module.toLowerCase();
+    lowerOutComp = resultJSON.comp.toLowerCase();
+    lowerOutData = resultJSON.data.toLowerCase();
+    lowerOutTabName = resultJSON.tab || "";
 
   } else {
-    const commandAry = ["out","type","node","module","data","comp","tabName"];
+    const commandAry = ["out","type","node","module","data","comp","tab"];
     commandAry.map(function(item){
       if(!argv[item]) throw item + '参数没有输入'; 
     })
@@ -61,7 +61,7 @@ module.exports = function(argv){
     lowerOutModule = argv.module.toLowerCase();
     lowerOutComp = argv.comp.toLowerCase();
     lowerOutData = argv.data.toLowerCase();
-    lowerOutTabName = argv.TabName;
+    lowerOutTabName = argv.tab || "";
   }
 
   upperOutData = func.UpperFirstLetter(lowerOutData);

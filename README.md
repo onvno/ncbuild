@@ -43,7 +43,7 @@ $ cd project
 #### 创建模板
 
 ```
-$ ncbuild temp --module=ModuleName --comp=CompName --name DirectoryName --data MetaData --type TypeName --node NodeName
+$ ncbuild temp --module=ModuleName --comp=CompName --name=DirectoryName --data=MetaData --type=TypeName --node=NodeName --tab=SubTableName
 ```
 
 因模板参数较多，为简化，推荐使用以下方式：将参数写入json文件，仅仅传`file`参数即可创建模板.
@@ -65,7 +65,8 @@ $ vi config.json
   "module": "party",
   "comp": "dwmgr",
   "type": "PT42",
-  "node": "PTH10402"
+  "node": "PTH10402",
+  "tab": "子表名称(如无子表设置为空)"
 }
 
 #创建模板
@@ -81,7 +82,7 @@ P.S:以上路径可以为相对或绝对路径
 支持创建`body`,`list`按钮
 
 ```
-$ ncbuild list --name ComponentName --body[list] ButtonName
+$ ncbuild list --name ComponentName --body[head] ButtonName
 ```
 
 以党群关系`relation`为例：
@@ -103,7 +104,7 @@ $ ncbuild list --name relation --head commit
 支持创建`body`,`list`按钮
 
 ```
-$ ncbuild card --name ComponentName --body[list] ButtonName
+$ ncbuild card --name ComponentName --body[head] ButtonName
 ```
 
 以党群关系`relation`为例：
@@ -128,7 +129,7 @@ $ ncbuild card --name relation --head edit
 
 #### TODO
 
-* `file`形式创建模板暂不支持大小写，需要优化❌
+* `file`形式创建模板暂不支持大小写，需要优化✅
 * 支持指定路径输出❌
 * 输出提示✅
 * 支持模板，卡片，列表多命令✅
